@@ -1,14 +1,23 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
-function App() {
+export default function App() {
   return (
-    <div style={{ textAlign: "center", marginTop: "80px", fontFamily: "sans-serif" }}>
-      <h1>👗 Welcome to StyleNest</h1>
-      <h2>Your Online Fashion Store</h2>
-      <p>Discover the latest trends and styles right from your home.</p>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
-
-export default App;
