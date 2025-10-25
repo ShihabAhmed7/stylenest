@@ -1,12 +1,30 @@
+import { useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
 import "./Products.css";
-import React from "react";
-import "./Products.css";
+import { getProducts } from "../services/api";
 
-export default function Products() {
+const Products = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getProducts();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
   return (
-    <div className="page products">
+    <div className="page">
       <h2>Products</h2>
       <p>Explore our latest collection!</p>
+      <div className="product-grid">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default Products;
