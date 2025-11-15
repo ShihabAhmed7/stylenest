@@ -28,3 +28,12 @@
 .nav-links a:hover {
   color: #ff8c00;
 }
+
+.logo-link {
+  color: white;
+  text-decoration: none;
+}
+
+.logo-link:hover {
+  color: #ff8c00;
+}

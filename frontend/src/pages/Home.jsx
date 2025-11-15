@@ -1,10 +1,8 @@
 import "./Home.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeroBanner from "../components/HeroBanner";
 import ProductCard from "../components/ProductCard";
-import { useEffect, useState } from "react";
 import { getProducts } from "../services/api";
-
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -15,17 +13,16 @@ export default function Home() {
 
   return (
     <div className="page">
+      {/* Optional hero banner */}
+      <HeroBanner />
+
       <h2>Our Products</h2>
+
       <section className="products-grid">
-        {products.map((p) => (
-          <div key={p.id} className="product-card">
-            <img src={p.image} alt={p.name} />
-            <h3>{p.name}</h3>
-            <p>€{p.price}</p>
-          </div>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </section>
     </div>
   );
 }
-
