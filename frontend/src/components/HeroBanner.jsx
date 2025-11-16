@@ -3,10 +3,11 @@ import "./Layout.css";
 
 export default function HeroBanner() {
   return (
-    <div className="hero">
-      <h1>Discover Your Style</h1>
-      <p>Trendy • Comfortable • Affordable</p>
-      <button>Shop Now</button>
-    </div>
+    <section className="hero">
+      <h1>Welcome to StyleNest</h1>
+      <p>Discover the latest fashion for everyone.</p>
+      {/* <button>Shop Now</button> */}
+    </section>
   );
 }
+
